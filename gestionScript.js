@@ -70,6 +70,7 @@ function dibujarTabla() {
           <td>${usuarios[i].rol}</td>
           <td>${usuarios[i].estado}</td>
           <td>
+            <div class="d-flex">
               <button 
                 class="btn btn-outline-primary btn-sm" 
                 type="button"
@@ -79,10 +80,27 @@ function dibujarTabla() {
                 aria-controls="auditoria-${i}">
                 Ver detalle
               </button>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex gap-2">
+              <button
+                class="btn btn-outline-secondary btn-sm" 
+                type="button" 
+                onclick="abrirModalEditar(${i})">
+                Editar
+              </button>
+              <button
+                class="btn btn-outline-danger btn-sm"
+                type="button"
+                onclick="eliminarUsuario(${i})">
+                Eliminar
+              </button>
+            </div>
           </td>
       </tr>
       <tr class="collapse" id="auditoria-${i}">
-          <td colspan="5">
+          <td colspan="6">
               <strong>Auditoría de ${usuarios[i].nombre}:</strong>
               <ul class="mb-0 ps-3">
                 ${usuarios[i].auditoria.map((registro) => `<li>${registro}</li>`).join("")}
@@ -196,3 +214,109 @@ document.getElementById("estado").style.cursor = "pointer"; // pista visual de q
 
 // Primer dibujo de la tabla al cargar la página
 dibujarTabla();
+
+// Guarda el arreglo actual en localStorage
+function guardarUsuarios() {
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+}
+
+// Abre el modal vacío, en modo "crear"
+function abrirModalAgregar() {
+  document.getElementById("modalUsuarioTitulo").textContent = "Añadir Usuario";
+  document.getElementById("indiceEdicion").value = -1;
+  document.getElementById("inputNombre").value = "";
+  document.getElementById("inputEmail").value = "";
+  document.getElementById("inputRol").value = "Usuario";
+  document.getElementById("inputEstado").value = "Activo";
+
+  let modal = new bootstrap.Modal(document.getElementById("modalUsuario"));
+  modal.show();
+}
+
+// Abre el modal precargado con los datos de un usuario, en modo "editar"
+function abrirModalEditar(indice) {
+  document.getElementById("modalUsuarioTitulo").textContent = "Editar Usuario";
+  document.getElementById("indiceEdicion").value = indice;
+  document.getElementById("inputNombre").value = usuarios[indice].nombre;
+  document.getElementById("inputEmail").value = usuarios[indice].email;
+  document.getElementById("inputRol").value = usuarios[indice].rol;
+  document.getElementById("inputEstado").value = usuarios[indice].estado;
+
+  let modal = new bootstrap.Modal(document.getElementById("modalUsuario"));
+  modal.show();
+}
+
+// Se ejecuta al presionar "Guardar" en el modal (sirve para crear Y editar)
+function guardarUsuarioDesdeModal() {
+  let indice = parseInt(document.getElementById("indiceEdicion").value);
+
+  let nombre = document.getElementById("inputNombre").value.trim();
+  let email = document.getElementById("inputEmail").value.trim();
+  let rol = document.getElementById("inputRol").value;
+  let estado = document.getElementById("inputEstado").value;
+
+  // Validación 1: campos obligatorios
+  if (nombre === "" || email === "") {
+    alert("Nombre y email son obligatorios");
+    return;
+  }
+
+  // Validación 2: nombre con largo mínimo razonable
+  if (nombre.length < 3) {
+    alert("El nombre debe tener al menos 3 caracteres");
+    return;
+  }
+
+  // Validación 3: formato de email válido
+  let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regexEmail.test(email)) {
+    alert("Ingresa un email válido (ejemplo: nombre@dominio.com)");
+    return;
+  }
+
+  // Validación 4: email no repetido en otro usuario
+  let emailDuplicado = usuarios.some((usuario, i) => {
+    return usuario.email.toLowerCase() === email.toLowerCase() && i !== indice;
+  });
+
+  if (emailDuplicado) {
+    alert("Ya existe un usuario con ese email");
+    return;
+  }
+
+  // Si pasó todas las validaciones, se guarda
+  if (indice === -1) {
+    usuarios.push({
+      nombre: nombre,
+      email: email,
+      rol: rol,
+      estado: estado,
+      auditoria: ["Usuario creado el " + new Date().toLocaleDateString()],
+    });
+  } else {
+    usuarios[indice].nombre = nombre;
+    usuarios[indice].email = email;
+    usuarios[indice].rol = rol;
+    usuarios[indice].estado = estado;
+    usuarios[indice].auditoria.push(
+      "Datos editados el " + new Date().toLocaleDateString()
+    );
+  }
+
+  guardarUsuarios();
+  dibujarTabla();
+
+  let modal = bootstrap.Modal.getInstance(document.getElementById("modalUsuario"));
+  modal.hide();
+}
+
+// Elimina un usuario, pidiendo confirmación antes
+function eliminarUsuario(indice) {
+  let confirmar = confirm(`¿Seguro que quieres eliminar a ${usuarios[indice].nombre}?`);
+
+  if (confirmar) {
+    usuarios.splice(indice, 1);
+    guardarUsuarios();
+    dibujarTabla();
+  }
+}

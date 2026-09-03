@@ -105,3 +105,26 @@ footer {
     height: 120px;
   }
 }
+
+#auditoria{
+  width: 10%;
+  white-space: nowrap;
+}
+
+#acciones {
+  width: 1%;
+  white-space: nowrap;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}

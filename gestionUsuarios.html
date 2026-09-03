@@ -21,16 +21,13 @@
         <nav>
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link text-white" href="InicioGestion.html">Inicio</a>
+              <a class="nav-link text-white" href="InicioGestion.html"
+                >Inicio</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="gestionUsuarios.html"
                 >Gestión de Usuarios</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="crearEditarUsuarios.html"
-                >Crear y editar Usuarios</a
               >
             </li>
           </ul>
@@ -41,6 +38,75 @@
     <main class="container my-5">
       <h1 class="text-center mb-4">Gestión de Usuarios</h1>
 
+      <div class="d-flex justify-content-end mb-3">
+        <button
+          class="btn btn-success"
+          type="button"
+          onclick="abrirModalAgregar()"
+        >
+          Añadir Usuario
+        </button>
+      </div>
+
+      <div class="modal fade" id="modalUsuario" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalUsuarioTitulo">
+                Añadir Usuario
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" id="indiceEdicion" value="-1" />
+              <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputNombre" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Rol</label>
+                <select class="form-select" id="inputRol">
+                  <option value="Administrador">Administrador</option>
+                  <option value="Vendedor">Vendedor</option>
+                  <option value="Usuario">Usuario</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Estado</label>
+                <select class="form-select" id="inputEstado">
+                  <option value="Activo">Activo</option>
+                  <option value="Inactivo">Inactivo</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onclick="guardarUsuarioDesdeModal()"
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="table-responsive">
         <table class="table table-striped table-bordered">
           <thead class="table-dark">
@@ -50,6 +116,7 @@
               <th id="rol">Rol</th>
               <th id="estado">Estado</th>
               <th id="auditoria">Auditoría</th>
+              <th id="acciones">Acciones</th>
             </tr>
           </thead>
           <tbody id="userTableBody"></tbody>
