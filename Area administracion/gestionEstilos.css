@@ -1,0 +1,219 @@
+/* ============================================================
+   SITIO PÚBLICO (tienda)
+   ============================================================ */
+
+header {
+  border-bottom: 10px solid #005f7f;
+}
+
+.navbar-nav .nav-link {
+  margin: 20px;
+  font-size: 20px;
+}
+
+p,
+li {
+  font-size: 20px;
+}
+
+.color-azul {
+  color: #005f7f;
+}
+
+.textoCarrusel {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  color: white;
+  text-align: left;
+  max-width: 400px;
+  font-weight: bold;
+}
+
+footer {
+  border-top: 10px solid #005f7f;
+}
+
+/* --- Carrito --- */
+.cart-product-image {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  background-color: #f8f9fa;
+  padding: 8px;
+}
+
+.cart-item {
+  padding: 8px 0;
+}
+
+.cart-item .btn-outline-secondary {
+  min-width: 35px;
+}
+
+@media (max-width: 767px) {
+  .cart-product-image {
+    height: 100px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cart-product-image {
+    height: 130px;
+  }
+}
+
+/* --- Pedidos --- */
+.pedido-item {
+  transition: background-color 0.2s ease;
+}
+
+.pedido-item:hover {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 767px) {
+  .pedido-item .btn {
+    width: 100%;
+  }
+}
+
+.pedido-estado {
+  font-size: 0.9rem;
+}
+
+/* --- Detalle de producto --- */
+.detalle-producto {
+  padding: 8px 0;
+}
+
+.detalle-producto-imagen {
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+  background-color: #f8f9fa;
+  padding: 8px;
+}
+
+@media (max-width: 767px) {
+  .detalle-producto-imagen {
+    height: 95px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .detalle-producto-imagen {
+    height: 120px;
+  }
+}
+
+/* ============================================================
+   ÁREA DE ADMINISTRACIÓN
+   Base reutilizable para TODAS las páginas del panel admin
+   (InicioAdmin, gestionUsuarios, y las que vengan después:
+   gestión de productos, pedidos, etc.)
+   ============================================================ */
+
+/* Layout general de página admin: columna, para el sticky footer */
+.admin-body {
+  background-color: #f4f5f7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenedor de sidebar + contenido principal, en fila */
+.admin-layout {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .admin-layout {
+    flex-direction: row;
+  }
+}
+
+/* Menú lateral (sidebar) */
+.admin-sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background-color: #1c1f26;
+  flex-shrink: 0;
+}
+
+.admin-acento {
+  color: #d4a017;
+}
+
+.admin-nav-link {
+  color: #c7c9cf !important;
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: background-color 0.15s ease;
+}
+
+.admin-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white !important;
+}
+
+.admin-nav-link.active {
+  background-color: #d4a017;
+  color: #1c1f26 !important;
+  font-weight: bold;
+}
+
+.admin-nav-link.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Elementos reutilizables dentro del contenido admin */
+.admin-badge {
+  background-color: #d4a017;
+  color: #1c1f26;
+}
+
+.admin-card {
+  border: none;
+  border-top: 4px solid #d4a017;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-3px);
+}
+
+.admin-card-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.admin-topbar {
+  background-color: #1c1f26; /* mismo color oscuro del sidebar, para que se vea integrado */
+}
+
+.admin-sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background-color: #1c1f26;
+  flex-shrink: 0;
+}
+
+/* Bootstrap usa esta variable para definir el ancho del offcanvas en modo celular */
+@media (max-width: 767.98px) {
+  .admin-sidebar {
+    --bs-offcanvas-width: 260px;
+  }
+}
+
+/* Columna de tabla que debe ajustarse a su contenido
+   (botones, iconos, etc.) en vez de estirarse de más.
+   Úsala en cualquier <th> de cualquier tabla del panel admin. */
+.admin-col-ajustada {
+  width: 1%;
+  white-space: nowrap;
+}

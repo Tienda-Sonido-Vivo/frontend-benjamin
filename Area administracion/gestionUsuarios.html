@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Usuarios - Sonido Vivo</title>
+    <link rel="stylesheet" href="gestionEstilos.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body class="admin-body">
+    <div
+      class="admin-topbar d-md-none d-flex justify-content-between align-items-center p-3"
+    >
+      <span class="fw-bold text-white">
+        Sonido <span class="admin-acento">Vivo</span>
+      </span>
+      <button
+        class="btn btn-outline-light btn-sm"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sidebarAdmin"
+        aria-controls="sidebarAdmin"
+      >
+        ☰ Menú
+      </button>
+    </div>
+    <!-- Sidebar + contenido, lado a lado -->
+    <div class="admin-layout">
+      <aside class="admin-sidebar text-white p-3">
+        <h4 class="mb-4 border-bottom pb-3">
+          Sonido <span class="admin-acento">Vivo</span>
+          <small class="d-block fs-6 fw-normal text-secondary"
+            >Panel Administrador</small
+          >
+        </h4>
+
+        <nav>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2">
+              <a class="nav-link admin-nav-link" href="InicioAdmin.html">
+                🏠 Inicio
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a
+                class="nav-link admin-nav-link active"
+                href="gestionUsuarios.html"
+              >
+                👤 Gestión de Usuarios
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a class="nav-link admin-nav-link" href="gestionProductos.html">
+                🎸 Gestión de Productos
+              </a>
+            </li>
+            <li class="nav-item mb-2">
+              <a
+                class="nav-link admin-nav-link disabled"
+                href="#"
+                aria-disabled="true"
+              >
+                📦 Gestión de Pedidos
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <hr class="border-secondary mt-4" />
+
+        <a href="SonidoVivo.html" class="btn btn-outline-light btn-sm w-100">
+          ← Volver al sitio público
+        </a>
+      </aside>
+
+      <main class="p-4">
+        <h1 class="text-center mb-4">Gestión de Usuarios</h1>
+
+        <div class="d-flex justify-content-end mb-3">
+          <button
+            class="btn btn-success"
+            type="button"
+            onclick="abrirModalAgregar()"
+          >
+            Añadir Usuario
+          </button>
+        </div>
+
+        <div class="modal fade" id="modalUsuario" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalUsuarioTitulo">
+                  Añadir Usuario
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <input type="hidden" id="indiceEdicion" value="-1" />
+
+                <div class="mb-3">
+                  <label class="form-label">RUT</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputRun"
+                    placeholder="12345678-9"
+                    maxlength="10"
+                  />
+                  <div class="invalid-feedback">
+                    RUT inválido (verifica el dígito verificador)
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="inputNombre" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Apellidos</label>
+                  <input type="text" class="form-control" id="inputApellidos" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" id="inputEmail" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Fecha de Nacimiento</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="inputFechaNacimiento"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Región</label>
+                  <select class="form-select" id="inputRegion">
+                    <option value="">Selecciona una región</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Comuna</label>
+                  <select class="form-select" id="inputComuna" disabled>
+                    <option value="">Primero selecciona una región</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Dirección</label>
+                  <input type="text" class="form-control" id="inputDireccion" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Rol</label>
+                  <select class="form-select" id="inputRol">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Usuario">Usuario</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Estado</label>
+                  <select class="form-select" id="inputEstado">
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="guardarUsuarioDesdeModal()"
+                >
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+              <tr>
+                <th id="run">RUN</th>
+                <th id="nombre">Nombre</th>
+                <th id="apellidos">Apellidos</th>
+                <th id="email">Email</th>
+                <th id="fechaNacimiento">Fecha de Nacimiento</th>
+                <th id="region">Región</th>
+                <th id="comuna">Comuna</th>
+                <th id="direccion">Dirección</th>
+                <th id="rol">Rol</th>
+                <th id="estado">Estado</th>
+                <th id="auditoria" class="admin-col-ajustada">Auditoría</th>
+                <th id="acciones" class="admin-col-ajustada">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <footer class="bg-dark text-white text-center p-4">
+      <p class="mb-1 text-center">© 2026 Sonido Vivo - Viña del Mar</p>
+      <small class="text-secondary">
+        Contacto: tienda.sonido.vivo@gmail.cl | Teléfono: +56 9 5555 5555
+      </small>
+    </footer>
+
+    <script src="regionesComunas.js"></script>
+    <script src="gestionScript.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
