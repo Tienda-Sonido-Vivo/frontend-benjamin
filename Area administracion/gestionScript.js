@@ -352,22 +352,6 @@ function calcularDigitoVerificador(rutSinDv) {
 }
 
 function validarRun(run) {
-  // Formato: 7 u 8 dígitos, seguidos directo del verificador (número o K), sin puntos ni guion
-  let regexFormato = /^\d{7,8}[\dkK]$/;
-
-  if (!regexFormato.test(run)) {
-    return false;
-  }
-
-  let cuerpo = run.slice(0, -1); /* todo menos el último caracter */
-  let dvIngresado = run.slice(-1).toUpperCase(); // último caracter, en mayúscula
-
-  let dvCalculado = calcularDigitoVerificador(cuerpo);
-
-  return dvIngresado === dvCalculado;
-}
-
-function validarRun(run) {
   // Formato: 7 u 8 dígitos, guion, y verificador (número o K) — sin puntos
   let regexFormato = /^\d{7,8}-[\dkK]$/;
 
@@ -444,32 +428,4 @@ document.getElementById("inputRegion").addEventListener("change", function () {
 
 // Llenamos el select de regiones una sola vez, al cargar la página
 llenarSelectRegiones();
-/*----------------------------------------------------------------------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------------------------------------------------------------------*/
-function llenarSelectComunas(regionSeleccionada, comunaAPreseleccionar) {
-  let selectComuna = document.getElementById("inputComuna");
-  selectComuna.innerHTML = "";
-
-  if (regionSeleccionada === "" || !regionesComunas[regionSeleccionada]) {
-    selectComuna.innerHTML =
-      '<option value="">Primero selecciona una región</option>';
-    selectComuna.disabled = true;
-    return;
-  }
-
-  selectComuna.disabled = false;
-  selectComuna.innerHTML = '<option value="">Selecciona una comuna</option>';
-
-  let comunas = regionesComunas[regionSeleccionada];
-
-  comunas.forEach((comuna) => {
-    let opcion = document.createElement("option");
-    opcion.value = comuna;
-    opcion.textContent = comuna;
-    if (comuna === comunaAPreseleccionar) {
-      opcion.selected = true;
-    }
-    selectComuna.appendChild(opcion);
-  });
-}
 /*----------------------------------------------------------------------------------------------------------------------------------------*/

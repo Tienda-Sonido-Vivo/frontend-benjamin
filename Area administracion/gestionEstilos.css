@@ -136,10 +136,10 @@ footer {
 }
 
 /* Menú lateral (sidebar) */
-.admin-sidebar {
+.admin-sidebar.offcanvas-md {
   width: 260px;
   min-height: 100vh;
-  background-color: #1c1f26;
+  background-color: #1c1f26 !important;
   flex-shrink: 0;
 }
 
@@ -196,16 +196,9 @@ footer {
   background-color: #1c1f26; /* mismo color oscuro del sidebar, para que se vea integrado */
 }
 
-.admin-sidebar {
-  width: 260px;
-  min-height: 100vh;
-  background-color: #1c1f26;
-  flex-shrink: 0;
-}
-
 /* Bootstrap usa esta variable para definir el ancho del offcanvas en modo celular */
 @media (max-width: 767.98px) {
-  .admin-sidebar {
+  .admin-sidebar.offcanvas-md {
     --bs-offcanvas-width: 260px;
   }
 }

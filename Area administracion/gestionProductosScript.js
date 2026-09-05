@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 // Umbral de stock bajo: si el stock es MENOR a este número, se marca como advertencia
-const UMBRAL_STOCK_BAJO = 5;
+const UMBRAL_STOCK_BAJO = 2;
 
 // Cargamos productos desde localStorage, o creamos datos de ejemplo (basados en tu catálogo real)
 let datosGuardadosProductos = localStorage.getItem("productos");
@@ -9,44 +9,38 @@ let productos;
 if (datosGuardadosProductos === null) {
   productos = [
     {
-      codigo: "GA001",
-      categoria: "Guitarras Acústicas",
-      nombre: "Guitarra Acústica Folk",
-      marca: "Yamaha",
-      modelo: "F310",
-      stock: 8,
-      precio: 129990,
-      descripcion: "Tapa de abeto, aros y fondo de meranti. Ideal para iniciantes.",
-    },
-    {
-      codigo: "GA004",
-      categoria: "Guitarras Acústicas",
-      nombre: "Guitarra Electroacústica",
-      marca: "Takamine",
-      modelo: "GN20CE",
-      stock: 3,
-      precio: 349990,
-      descripcion: "Pickup integrado, afinador incorporado.",
-    },
-    {
-      codigo: "GE005",
-      categoria: "Guitarras Eléctricas",
-      nombre: "Guitarra Eléctrica Semi-hollow",
-      marca: "Epiphone",
-      modelo: "ES-335",
-      stock: 2,
-      precio: 549990,
-      descripcion: "Semi-hueca, 2 humbuckers, ideal para jazz y blues.",
-    },
-    {
       codigo: "BA002",
-      categoria: "Bajos Eléctricos",
       nombre: "Bajo Eléctrico Jazz Bass",
+      categoria: "Bajos Eléctricos",
       marca: "Fender",
       modelo: "Player Jazz",
-      stock: 2,
       precio: 699990,
+      stock: 2,
+      imagen: "imagenes/tarjetas/Bajo Fender Player Jazz.jpg",
       descripcion: "Alder body, 2 Alnico V Jazz single-coil.",
+    },
+    {
+      codigo: "GA001",
+      nombre: "Guitarra Acústica Folk",
+      categoria: "Guitarras Acústicas",
+      marca: "Yamaha",
+      modelo: "F310",
+      precio: 129990,
+      stock: 8,
+      imagen: "imagenes/tarjetas/Guitarra Acustica Yamaha F310.webp",
+      descripcion:
+        "Tapa de abeto, aros y fondo de meranti. Ideal para iniciantes.",
+    },
+    {
+      codigo: "BT003",
+      nombre: 'Caja Snare 14"',
+      categoria: "Baterías",
+      marca: "Pearl",
+      modelo: "STE1450",
+      precio: 89990,
+      stock: 4,
+      imagen: "imagenes/tarjetas/Bateria Pearl STE1450.jpeg",
+      descripcion: 'Acero, 14x5", 10 tensores.',
     },
   ];
 
@@ -131,7 +125,9 @@ function ordenarProductosPorCampo(campo) {
   productos.sort((a, b) => {
     // stock y precio son números: se comparan con resta, no con localeCompare (que es para texto)
     if (typeof a[campo] === "number") {
-      return ordenAscendenteProductos[campo] ? a[campo] - b[campo] : b[campo] - a[campo];
+      return ordenAscendenteProductos[campo]
+        ? a[campo] - b[campo]
+        : b[campo] - a[campo];
     }
     return ordenAscendenteProductos[campo]
       ? a[campo].localeCompare(b[campo])
@@ -167,7 +163,8 @@ function guardarProductos() {
 }
 
 function abrirModalAgregarProducto() {
-  document.getElementById("modalProductoTitulo").textContent = "Añadir Producto";
+  document.getElementById("modalProductoTitulo").textContent =
+    "Añadir Producto";
   document.getElementById("indiceEdicionProducto").value = -1;
   document.getElementById("inputCodigo").value = "";
   document.getElementById("inputCategoria").value = "Guitarras Acústicas";
@@ -183,16 +180,19 @@ function abrirModalAgregarProducto() {
 }
 
 function abrirModalEditarProducto(indice) {
-  document.getElementById("modalProductoTitulo").textContent = "Editar Producto";
+  document.getElementById("modalProductoTitulo").textContent =
+    "Editar Producto";
   document.getElementById("indiceEdicionProducto").value = indice;
   document.getElementById("inputCodigo").value = productos[indice].codigo;
   document.getElementById("inputCategoria").value = productos[indice].categoria;
-  document.getElementById("inputNombreProducto").value = productos[indice].nombre;
+  document.getElementById("inputNombreProducto").value =
+    productos[indice].nombre;
   document.getElementById("inputMarca").value = productos[indice].marca;
   document.getElementById("inputModelo").value = productos[indice].modelo;
   document.getElementById("inputStock").value = productos[indice].stock;
   document.getElementById("inputPrecio").value = productos[indice].precio;
-  document.getElementById("inputDescripcion").value = productos[indice].descripcion;
+  document.getElementById("inputDescripcion").value =
+    productos[indice].descripcion;
 
   let modal = new bootstrap.Modal(document.getElementById("modalProducto"));
   modal.show();
@@ -230,7 +230,9 @@ function guardarProductoDesdeModal() {
 
   // Validación 3: código no repetido
   let codigoDuplicado = productos.some((producto, i) => {
-    return producto.codigo.toUpperCase() === codigo.toUpperCase() && i !== indice;
+    return (
+      producto.codigo.toUpperCase() === codigo.toUpperCase() && i !== indice
+    );
   });
 
   if (codigoDuplicado) {
@@ -239,7 +241,16 @@ function guardarProductoDesdeModal() {
   }
 
   if (indice === -1) {
-    productos.push({ codigo, categoria, nombre, marca, modelo, stock, precio, descripcion });
+    productos.push({
+      codigo,
+      categoria,
+      nombre,
+      marca,
+      modelo,
+      stock,
+      precio,
+      descripcion,
+    });
   } else {
     productos[indice].codigo = codigo;
     productos[indice].categoria = categoria;
@@ -254,13 +265,17 @@ function guardarProductoDesdeModal() {
   guardarProductos();
   dibujarTablaProductos();
 
-  let modal = bootstrap.Modal.getInstance(document.getElementById("modalProducto"));
+  let modal = bootstrap.Modal.getInstance(
+    document.getElementById("modalProducto"),
+  );
   modal.hide();
 }
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------------------*/
 function eliminarProducto(indice) {
-  let confirmar = confirm(`¿Seguro que quieres eliminar "${productos[indice].nombre}"?`);
+  let confirmar = confirm(
+    `¿Seguro que quieres eliminar "${productos[indice].nombre}"?`,
+  );
 
   if (confirmar) {
     productos.splice(indice, 1);
