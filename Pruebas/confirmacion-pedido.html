@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmación del Pedido - Sonido Vivo</title>
+
+    <!-- Link a Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <!-- Link a CSS base -->
+    <link rel="stylesheet" href="SonidoVivoEstilos.css" />
+
+    <!-- Link a CSS personalizado -->
+    <link rel="stylesheet" href="confirmacionEstilos.css" />
+  </head>
+
+  <body>
+   
+    <!-- === HEADER === -->
+
+    <header>
+
+        <!-- === MENÚ DEL HEADER === -->
+
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
+
+            <div class="container">
+
+                <!-- LOGO -->
+
+                <a
+                    class="navbar-brand fw-bold fs-4 text-white"
+                    href="SonidoVivo.html"
+                >
+                    Sonido <span class="color-azul">Vivo</span>
+                </a>
+
+
+                <!-- BOTÓN HAMBURGUESA -->
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+
+                <!-- CONTENIDO DEL NAVBAR -->
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav ms-auto fs-5">
+
+                        <!-- INICIO -->
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link text-white"
+                                href="SonidoVivo.html"
+                            >
+                                Inicio
+                            </a>
+
+                        </li>
+
+
+                        <!-- CATEGORÍAS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Categorias
+                            </a>
+
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Guitarras%20Acústicas"
+                                    >
+                                        Guitarras Acústicas
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Guitarras%20Eléctricas"
+                                    >
+                                        Guitarras Eléctricas
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Bajos%20Eléctricos"
+                                    >
+                                        Bajos Eléctricos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Baterías"
+                                    >
+                                        Baterías
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Teclados%20y%20Pianos"
+                                    >
+                                        Teclados y Pianos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Amplificadores%20de%20sonido"
+                                    >
+                                        Amplificadores de sonido
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Micrófonos"
+                                    >
+                                        Micrófonos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Pedales%20de%20Efectos"
+                                    >
+                                        Pedales de Efectos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Accesorios"
+                                    >
+                                        Accesorios
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Estudio%20y%20Grabación"
+                                    >
+                                        Estudio y Grabación
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- NOVEDADES Y SERVICIOS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Novedades
+                            </a>
+
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="novedades.html"
+                                    >
+                                        Ver Novedades
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- NOSOTROS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Nosotros
+                            </a>
+
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="sobreNosotros.html"
+                                    >
+                                        Sobre Nosotros
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="sobreNosotros.html#ubicacion"
+                                    >
+                                        Donde Encontrarnos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="sobreNosotros.html#contactos"
+                                    >
+                                        Contactanos
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- CARRITO -->
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link text-white"
+                                href="carrito.html"
+                            >
+                                Carrito
+                            </a>
+
+                        </li>
+
+
+                        <!-- INICIAR SESIÓN -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href=""
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Mi Cuenta
+                            </a>
+
+
+                            <ul class="dropdown-menu" id="menuCuenta">
+
+                                <!-- El contenido se genera mediante navbar.js -->
+
+                            </ul>
+
+                        </li>
+
+                        
+
+                    </ul>
+
+                    <!-- BUSCADOR -->
+
+                    <form class="d-flex ms-3" role="search" id="formBuscar">
+
+                        <input
+                            class="form-control form-control-sm me-2"
+                            type="search"
+                            id="busqueda"
+                            placeholder="Buscar..."
+                            aria-label="Buscar"
+                        >
+
+                        <button
+                            class="btn btn-outline-light btn-sm"
+                            type="submit"
+                        >
+                            Buscar
+                        </button>
+
+                    </form>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- === CONTENIDO PRINCIPAL === -->
+    <main class="container my-5">
+      <!-- === SECCIÓN DE ÉXITO === -->
+      <div class="text-center mb-5">
+        <div class="icono-exito mb-3">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h1 class="color-azul fw-bold mb-2">¡Pedido Confirmado!</h1>
+        <p class="text-muted fs-5">
+          Tu pedido ha sido recibido y está siendo procesado
+        </p>
+      </div>
+
+      <!-- === NÚMERO DE PEDIDO === -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-12 col-md-6">
+          <div class="card card-numero-pedido shadow-sm text-center">
+            <div class="card-body">
+              <p class="text-muted mb-2">Número de Pedido</p>
+
+              <!-- Agregamos id de numero de pedido -->
+
+              <h2 id="numeroPedido" class="color-azul fw-bold"></h2>
+
+              <!-- Agregamos id de correo -->
+              <p class="text-muted small mt-3">
+                Hemos enviado un correo de confirmación a
+                <strong id="correoPedido"></strong>
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- === ESTADO DEL PEDIDO === -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-12 col-lg-10">
+          <h3 class="color-azul fw-bold mb-4">Estado del Pedido</h3>
+
+          <div class="timeline-contenedor">
+            <!-- ESTADO 1: CONFIRMADO -->
+            <div class="timeline-item activo">
+              <div class="timeline-marcador"></div>
+              <div class="timeline-contenido">
+                <h5 class="fw-semibold">Pedido Confirmado</h5>
+                <!-- Agregamos id de fecha de pedido -->
+                <p id="fechaPedido" class="text-muted mb-0"></p>
+                <p class="small text-muted mt-1">Tu pedido ha sido recibido</p>
+              </div>
+            </div>
+
+            <!-- ESTADO 2: PREPARACIÓN -->
+            <div class="timeline-item">
+              <div class="timeline-marcador"></div>
+              <div class="timeline-contenido">
+                <h5 class="fw-semibold">En Preparación</h5>
+                <p class="text-muted mb-0">Próximas 24-48 horas</p>
+                <p class="small text-muted mt-1">
+                  Estamos preparando tu pedido para envío
+                </p>
+              </div>
+            </div>
+
+            <!-- ESTADO 3: ENVIADO -->
+            <div class="timeline-item">
+              <div class="timeline-marcador"></div>
+              <div class="timeline-contenido">
+                <h5 class="fw-semibold">Despachado</h5>
+                <p class="text-muted mb-0">Próximos 3-5 días hábiles</p>
+                <p class="small text-muted mt-1">
+                  Recibirás un número de seguimiento
+                </p>
+              </div>
+            </div>
+
+            <!-- ESTADO 4: ENTREGADO -->
+            <div class="timeline-item">
+              <div class="timeline-marcador"></div>
+              <div class="timeline-contenido">
+                <h5 class="fw-semibold">Entregado</h5>
+                <p class="text-muted mb-0">Pendiente</p>
+                <p class="small text-muted mt-1">
+                  Recibirás tu pedido en la dirección indicada
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- === INFORMACIÓN DEL PEDIDO === -->
+      <div class="row g-4 mb-5">
+        <!-- DETALLES DE ENVÍO -->
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">📦 Información de Envío</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <p class="text-muted small mb-1">Método de Entrega</p>
+                <!-- Agregamos id de metodo de entrega -->
+                <p id="metodoEntrega" class="fw-semibold mb-0"></p>
+              </div>
+              <hr />
+              <div class="mb-3">
+                <p class="text-muted small mb-1">Dirección de Envío</p>
+                
+                <!-- Agregamos id de direccion de entrega -->
+                <p id="direccionEntrega" class="mb-0"></p>
+              </div>
+              <hr />
+
+              <div class="alert alert-info mt-3 mb-0">
+                <small>
+                  <strong>✓ Entrega estimada:</strong> 6-8 días hábiles desde
+                  la confirmación
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATOS DEL CLIENTE -->
+        <div class="col-12 col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+              <h5 class="mb-0">👤 Datos del Cliente</h5>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <p class="text-muted small mb-1">Nombre Completo</p>
+                <!-- Agregamos id de nombre -->
+                <p id="nombreCliente" class="fw-semibold mb-0"></p>
+              </div>
+              <hr />
+              <div class="mb-3">
+                <p class="text-muted small mb-1">Correo Electrónico</p>
+                <!-- Agregamos id de correo -->
+                <p id="correoCliente" class="fw-semibold mb-0"></p>
+              </div>
+              <hr />
+              <div class="mb-3">
+                <!-- Agregamos id de nombre -->
+                <p class="text-muted small mb-1">Teléfono</p>
+                <p id="telefonoCliente" class="fw-semibold mb-0"></p>
+              </div>
+              <hr />
+              <div class="mb-3">
+                <p class="text-muted small mb-1">Región</p>
+                <!-- Agregamos id de region -->
+                <p id="regionCliente" class="fw-semibold mb-0"></p>
+              </div>
+              <div>
+                <!-- Agregamos id de comuna -->
+                <p class="text-muted small mb-1">Comuna</p>
+                <p id="comunaCliente" class="fw-semibold mb-0"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- === RESUMEN DE PRODUCTOS === -->
+      <div class="card shadow-sm mb-5">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">🛍️ Productos Ordenados</h5>
+        </div>
+        <div id="productosOrdenados" class="card-body">
+          <!-- Los productos se cargarán mediante JavaScript -->
+        </div>
+      </div>
+
+      <!-- === RESUMEN FINANCIERO === -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-12 col-lg-8">
+          <div class="card card-resumen shadow-sm">
+            <div class="card-body">
+              <!-- CÁLCULOS -->
+              <div class="mb-3">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Subtotal:</span>
+                  <strong id="subtotalPedido"></strong>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Costo de Envío (Despacho):</span>
+                  <strong id="envioPedido"></strong>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                  <span>IVA (incluido):</span>
+                  <strong id="ivaPedido"></strong>
+                </div>
+              </div>
+
+              <hr class="border-2" />
+
+              <!-- TOTAL -->
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fs-5 fw-bold">Total Pagado:</span>
+                <span id="totalPedido" class="fs-4 fw-bold text-success"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- === INFORMACIÓN ADICIONAL === -->
+      <div class="row g-4 mb-5">
+        <!-- MÉTODO DE PAGO -->
+        <div class="col-12 col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-header bg-success text-white">
+              <h5 class="mb-0">💳 Método de Pago</h5>
+            </div>
+            <div class="card-body">
+              <p class="text-muted small mb-1">Tipo de Tarjeta</p>
+              <p id="metodoPago" class="fw-semibold mb-3"></p>
+
+              <p class="text-muted small mb-1">Últimos Dígitos</p>
+              <p class="fw-semibold mb-3">**** **** **** 3456</p>
+
+              <div class="alert alert-success mb-0">
+                <small>
+                  <strong>✓ Pago registrado:</strong>
+                  El método de pago seleccionado ha sido registrado correctamente.
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRÓXIMOS PASOS -->
+        <div class="col-12 col-md-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-header bg-info text-white">
+              <h5 class="mb-0">📋 Próximos Pasos</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <span class="badge bg-primary me-2">1</span>
+                  <span class="small">
+                    Tu pedido ha sido registrado correctamente
+                  </span>
+                </li>
+                <li class="mb-2">
+                  <span class="badge bg-primary me-2">2</span>
+                  <span class="small">
+                    Tu pedido estará en preparación próximas 24-48 horas
+                  </span>
+                </li>
+                <li class="mb-2">
+                  <span class="badge bg-primary me-2">3</span>
+                  <span class="small">
+                    Recibirás número de seguimiento del envío
+                  </span>
+                </li>
+                <li>
+                  <span class="badge bg-primary me-2">4</span>
+                  <span class="small">
+                    Entrega en 6-8 días hábiles (puede variar según zona)
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- === BOTONES DE ACCIÓN === -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-12 col-md-8">
+          <div class="d-grid gap-3">
+            <!-- BOTÓN VOLVER A INICIO -->
+            <a
+              href="SonidoVivo.html"
+              class="btn btn-primary btn-lg fw-semibold"
+            >
+              ← Volver a Inicio
+            </a>
+
+            <!-- BOTÓN MIS PEDIDOS -->
+            <a
+              href="misPedidos.html"
+              class="btn btn-outline-primary btn-lg fw-semibold"
+            >
+              📦 Ver Mis Pedidos
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- === CONTACTO === -->
+      <div class="alert alert-light border mt-5 text-center">
+        <p class="mb-2">
+          <strong>¿Tienes alguna pregunta sobre tu pedido?</strong>
+        </p>
+        <p class="text-muted mb-2">
+          Contacta con nosotros a través de:
+        </p>
+        <p class="mb-0">
+          📧
+          <a
+            href="mailto:tienda.sonido.vivo@gmail.cl"
+            class="text-decoration-none"
+          >
+            tienda.sonido.vivo@gmail.cl
+          </a>
+          | ☎️
+          <a href="tel:+56951234567" class="text-decoration-none">
+            +56 9 1234 5678
+          </a>
+        </p>
+      </div>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="bg-dark text-white text-center p-4 mt-5">
+      <p class="mb-1 text-center">© 2026 Sonido Vivo - Viña del Mar</p>
+      <small class="text-secondary">
+        Contacto: tienda.sonido.vivo@gmail.cl | Teléfono: +56 9 5555 5555
+      </small>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Script personalizado -->
+     <script src="navbar.js"></script>
+    <script src="confirmacionScript.js"></script>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de Usuarios - Sonido Vivo</title>
+    <title>Gestión de Pedidos - Sonido Vivo</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -41,7 +41,7 @@
         <div class="offcanvas-header">
           <button
             type="button"
-            class="btn-close btn-close-white d-md-none"
+            class="btn-close btn-close-white ms-auto"
             data-bs-dismiss="offcanvas"
             data-bs-target="#sidebarAdmin"
             aria-label="Cerrar"
@@ -55,20 +55,16 @@
               >Panel Administrador</small
             >
           </h4>
-        </div>
 
-        <div class="offcanvas-body d-flex flex-column p-3 p-md-0">
           <nav>
             <ul class="nav flex-column">
               <li class="nav-item mb-2">
-                <a
-                  class="nav-link admin-nav-link"
-                  href="InicioAdmin.html"
+                <a class="nav-link admin-nav-link" href="InicioAdmin.html"
                   >🏠 Inicio</a
                 >
               </li>
               <li class="nav-item mb-2">
-                <a class="nav-link admin-nav-link active" href="gestionUsuarios.html"
+                <a class="nav-link admin-nav-link" href="gestionUsuarios.html"
                   >👤 Gestión de Usuarios</a
                 >
               </li>
@@ -79,10 +75,10 @@
               </li>
               <li class="nav-item mb-2">
                 <a
-                  class="nav-link admin-nav-link "
-                  href="#"
+                  class="nav-link admin-nav-link active"
+                  href="gestionPedidos.html"
                   >📦 Gestión de Pedidos</a
-                ><!-- aqui-->
+                >
               </li>
             </ul>
           </nav>
@@ -96,24 +92,19 @@
       </aside>
 
       <main class="p-4">
-        <h1 class="text-center mb-4">Gestión de Usuarios</h1>
+        <h1 class="text-center mb-4">Gestión de Pedidos</h1>
 
-        <div class="d-flex justify-content-end mb-3">
-          <button
-            class="btn btn-success"
-            type="button"
-            onclick="abrirModalAgregar()"
-          >
-            Añadir Usuario
-          </button>
-        </div>
+        <p class="text-center text-muted mb-4">
+          Consulta los pedidos realizados y actualiza su estado.
+        </p>
 
-        <div class="modal fade" id="modalUsuario" tabindex="-1">
+        <!-- ==================== MODAL ==================== -->
+        <div class="modal fade" id="modalPedido" tabindex="-1">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalUsuarioTitulo">
-                  Añadir Usuario
+                <h5 class="modal-title" id="modalPedidoTitulo">
+                  Gestionar Pedido
                 </h5>
                 <button
                   type="button"
@@ -121,75 +112,57 @@
                   data-bs-dismiss="modal"
                 ></button>
               </div>
+
               <div class="modal-body">
-                <input type="hidden" id="indiceEdicion" value="-1" />
+                <input type="hidden" id="indicePedido" value="-1" />
 
                 <div class="mb-3">
-                  <label class="form-label">RUT</label>
+                  <label class="form-label fw-bold">Número de pedido</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="inputRun"
-                    placeholder="12345678-9"
-                    maxlength="10"
+                    id="numeroPedido"
+                    disabled
                   />
-                  <div class="invalid-feedback">
-                    RUT inválido (verifica el dígito verificador)
-                  </div>
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="inputNombre" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Apellidos</label>
-                  <input type="text" class="form-control" id="inputApellidos" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Fecha de Nacimiento</label>
+                  <label class="form-label fw-bold">Cliente</label>
                   <input
-                    type="date"
+                    type="text"
                     class="form-control"
-                    id="inputFechaNacimiento"
+                    id="clientePedido"
+                    disabled
                   />
                 </div>
+
                 <div class="mb-3">
-                  <label class="form-label">Región</label>
-                  <select class="form-select" id="inputRegion">
-                    <option value="">Selecciona una región</option>
+                  <label class="form-label fw-bold">Total</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="totalPedido"
+                    disabled
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="estadoPedido" class="form-label fw-bold"
+                    >Estado del pedido</label
+                  >
+                  <select class="form-select" id="estadoPedido">
+                    <option value="En preparación">En preparación</option>
+                    <option value="Despachado">Despachado</option>
+                    <option value="Entregado">Entregado</option>
                   </select>
                 </div>
-                <div class="mb-3">
-                  <label class="form-label">Comuna</label>
-                  <select class="form-select" id="inputComuna" disabled>
-                    <option value="">Primero selecciona una región</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Dirección</label>
-                  <input type="text" class="form-control" id="inputDireccion" />
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Rol</label>
-                  <select class="form-select" id="inputRol">
-                    <option value="Administrador">Administrador</option>
-                    <option value="Vendedor">Vendedor</option>
-                    <option value="Usuario">Usuario</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Estado</label>
-                  <select class="form-select" id="inputEstado">
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
-                  </select>
+
+                <div class="alert alert-info mb-0">
+                  <strong>Información:</strong> Solo puedes actualizar el estado
+                  del pedido.
                 </div>
               </div>
+
               <div class="modal-footer">
                 <button
                   type="button"
@@ -201,34 +174,31 @@
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="guardarUsuarioDesdeModal()"
+                  onclick="actualizarEstadoPedido()"
                 >
-                  Guardar
+                  Actualizar estado
                 </button>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- ==================== TABLA DE PEDIDOS ==================== -->
         <div class="table-responsive">
           <table class="table table-striped table-bordered">
             <thead class="table-dark">
               <tr>
-                <th id="run">RUN</th>
-                <th id="nombre">Nombre</th>
-                <th id="apellidos">Apellidos</th>
-                <th id="email">Email</th>
-                <th id="fechaNacimiento">Fecha de Nacimiento</th>
-                <th id="region">Región</th>
-                <th id="comuna">Comuna</th>
-                <th id="direccion">Dirección</th>
-                <th id="rol">Rol</th>
-                <th id="estado">Estado</th>
-                <th id="auditoria" class="admin-col-ajustada">Auditoría</th>
-                <th id="acciones" class="admin-col-ajustada">Acciones</th>
+                <th>Número de pedido</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th class="admin-col-ajustada">Acciones</th>
               </tr>
             </thead>
-            <tbody id="userTableBody"></tbody>
+            <tbody id="pedidoTableBody">
+              <!-- Los pedidos se cargarán mediante JavaScript -->
+            </tbody>
           </table>
         </div>
       </main>
@@ -241,8 +211,7 @@
       </small>
     </footer>
 
-    <script src="regionesComunas.js"></script>
-    <script src="gestionUsuariosScript.js"></script>
+    <script src="gestionPedidos.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonido Vivo | Registro de Usuario</title>
+
+    <!-- Link a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link a tu CSS personalizado -->
+    <link rel="stylesheet" href="SonidoVivoEstilos.css">
+</head>
+<body>
+
+    <!-- === HEADER === -->
+
+    <header>
+
+        <!-- === MENÚ DEL HEADER === -->
+
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
+
+            <div class="container">
+
+                <!-- LOGO -->
+
+                <a
+                    class="navbar-brand fw-bold fs-4 text-white"
+                    href="SonidoVivo.html"
+                >
+                    Sonido <span class="color-azul">Vivo</span>
+                </a>
+
+
+                <!-- BOTÓN HAMBURGUESA -->
+
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+
+                <!-- CONTENIDO DEL NAVBAR -->
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav ms-auto fs-5">
+
+                        <!-- INICIO -->
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link text-white"
+                                href="SonidoVivo.html"
+                            >
+                                Inicio
+                            </a>
+
+                        </li>
+
+
+                        <!-- CATEGORÍAS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Categorias
+                            </a>
+
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Guitarras%20Acústicas"
+                                    >
+                                        Guitarras Acústicas
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Guitarras%20Eléctricas"
+                                    >
+                                        Guitarras Eléctricas
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Bajos%20Eléctricos"
+                                    >
+                                        Bajos Eléctricos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Baterías"
+                                    >
+                                        Baterías
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Teclados%20y%20Pianos"
+                                    >
+                                        Teclados y Pianos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Amplificadores%20de%20sonido"
+                                    >
+                                        Amplificadores de sonido
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Micrófonos"
+                                    >
+                                        Micrófonos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Pedales%20de%20Efectos"
+                                    >
+                                        Pedales de Efectos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Accesorios"
+                                    >
+                                        Accesorios
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="catalogo.html?categoria=Estudio%20y%20Grabación"
+                                    >
+                                        Estudio y Grabación
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- NOVEDADES Y SERVICIOS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Novedades
+                            </a>
+
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="novedades.html"
+                                    >
+                                        Ver Novedades
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- NOSOTROS -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Nosotros
+                            </a>
+
+
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="sobreNosotros.html"
+                                    >
+                                        Sobre Nosotros
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="sobreNosotros.html#ubicacion"
+                                    >
+                                        Donde Encontrarnos
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        class="dropdown-item"
+                                        href="sobreNosotros.html#contactos"
+                                    >
+                                        Contactanos
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+                        <!-- CARRITO -->
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link text-white"
+                                href="carrito.html"
+                            >
+                                Carrito
+                            </a>
+
+                        </li>
+
+
+                        <!-- INICIAR SESIÓN -->
+
+                        <li class="nav-item dropdown">
+
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href=""
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Mi Cuenta
+                            </a>
+
+
+                            <ul class="dropdown-menu" id="menuCuenta">
+
+                                <!-- El contenido se genera mediante navbar.js -->
+
+                            </ul>
+
+                        </li>
+
+                        
+
+                    </ul>
+
+                    <!-- BUSCADOR -->
+
+                    <form class="d-flex ms-3" role="search" id="formBuscar">
+
+                        <input
+                            class="form-control form-control-sm me-2"
+                            type="search"
+                            id="busqueda"
+                            placeholder="Buscar..."
+                            aria-label="Buscar"
+                        >
+
+                        <button
+                            class="btn btn-outline-light btn-sm"
+                            type="submit"
+                        >
+                            Buscar
+                        </button>
+
+                    </form>
+                    
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- === CONTENIDO PRINCIPAL: REGISTRO === -->
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow p-4 border-0 rounded-3">
+                    <h2 class="text-center fw-bold mb-4">Crear una Cuenta</h2>
+                    
+                    <form>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="nombre" class="form-label fw-bold">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="apellido" class="form-label fw-bold">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" placeholder="Tu apellido" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-bold">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label fw-bold">Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" placeholder="+56 9 1234 5678">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="password" class="form-label fw-bold">Contraseña</label>
+                                <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="confirmPassword" class="form-label fw-bold">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="••••••••" required>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn text-white btn-lg" style="background-color: #005f7f;">
+                                Registrarme
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <p class="mb-0 text-muted fs-6">¿Ya tienes cuenta? <a href="login.html" class="color-azul fw-bold">Inicia sesión aquí</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center p-4 mt-5">
+
+        <p class="mb-1 text-center">
+            © 2026 Sonido Vivo - Viña del Mar
+        </p>
+
+        <small class="text-secondary">
+            Contacto: tienda.sonido.vivo@gmail.cl |
+            Teléfono: +56 9 5555 5555
+        </small>
+
+    </footer>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>
